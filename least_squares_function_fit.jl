@@ -1,3 +1,15 @@
+"""
+least_squares_function_fit.jl
+
+Author: Philippe Nadon
+Date: April 26, 2019
+
+Demonstrates LU decomposition and Least Squares fitting.
+This code is not production-ready, and is frankly poorly coded.
+The purpose was not to design elegant code,
+but rather to demonstrate the capabilities of Julia.
+"""
+
 using Pkg; Pkg.add("QuadGK")
 using QuadGK
 using LinearAlgebra
@@ -11,6 +23,13 @@ function main()
 	display( x)
 end
 
+"""
+func: The function to approximate
+bounds: the lower, upper bounds within which to approximate
+num_digits: The number of digits of precision
+
+returns: the coefficients of a quadratic function fitted onto *func*
+"""
 function approx_func( func, bounds, num_digits)
 	lower, upper = bounds
 
